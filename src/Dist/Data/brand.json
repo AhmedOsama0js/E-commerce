@@ -1,0 +1,54 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "Names": "Brand 1",
+      "image": "https://picsum.photos/id/251/200/200"
+    },
+    {
+      "id": 2,
+      "Names": "Brand 2",
+      "image": "https://picsum.photos/id/253/200/200"
+    },
+    {
+      "id": 3,
+      "Names": "Brand 3",
+      "image": "https://picsum.photos/id/250/200/200"
+    },
+    {
+      "id": 4,
+      "Names": "Brand 4",
+      "image": "https://picsum.photos/id/254/200/200"
+    },
+    {
+      "id": 5,
+      "Names": "Brand 5",
+      "image":"https://picsum.photos/id/255/200/200"
+    },
+    {
+      "id": 6,
+      "Names": "Brand 6",
+      "image": "https://picsum.photos/id/256/200/200"
+    },
+    {
+      "id": 7,
+      "Names": "Brand 7",
+      "image": "https://picsum.photos/id/257/200/200"
+    },
+    {
+      "id": 8,
+      "Names": "Brand 8",
+      "image": "https://picsum.photos/id/258/200/200"
+    },
+    {
+      "id": 9,
+      "Names": "Brand 9",
+      "image": "https://picsum.photos/id/259/200/200"
+    },
+    {
+      "id": 10,
+      "Names": "Brand 10",
+      "image": "https://picsum.photos/id/260/200/200"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+[
+  {
+    "product_id": 1,
+    "name": "موبايل iPhone 13 Pro",
+    "brand": "Apple",
+    "category": "هواتف ذكية",
+    "subcategory": "هواتف iPhone",
+    "price": 999,
+    "stock": 50
+  },
+  {
+    "product_id": 2,
+    "name": "لابتوب MacBook Pro 2022",
+    "brand": "Apple",
+    "category": "أجهزة كمبيوتر",
+    "subcategory": "لابتوب",
+    "price": 1999,
+    "stock": 30
+  },
+  {
+    "product_id": 3,
+    "name": "تلفاز سامسونج QLED 65 بوصة",
+    "brand": "Samsung",
+    "category": "التلفزيونات",
+    "subcategory": "تلفاز LED و QLED",
+    "price": 1499,
+    "stock": 20
+  },
+  {
+    "product_id": 4,
+    "name": "سماعات بلوتوث Sony WH-1000XM4",
+    "brand": "Sony",
+    "category": "سماعات الرأس",
+    "subcategory": "سماعات بلوتوث",
+    "price": 349,
+    "stock": 40
+  },
+  {
+    "product_id": 5,
+    "name": "ساعة ذكية Apple Watch Series 7",
+    "brand": "Apple",
+    "category": "الساعات الذكية",
+    "subcategory": "ساعات Apple Watch",
+    "price": 399,
+    "stock": 25
+  },
+  {
+    "product_id": 6,
+    "name": "كاميرا DSLR Canon EOS 90D",
+    "brand": "Canon",
+    "category": "التصوير",
+    "subcategory": "كاميرات DSLR",
+    "price": 1099,
+    "stock": 15
+  },
+  {
+    "product_id": 7,
+    "name": "طابعة HP LaserJet Pro MFP M28a",
+    "brand": "HP",
+    "category": "الطابعات",
+    "subcategory": "طابعات ليزر",
+    "price": 199,
+    "stock": 35
+  },
+  {
+    "product_id": 8,
+    "name": "مروحة تبريد للكمبيوتر Cooler Master Hyper 212",
+    "brand": "Cooler Master",
+    "category": "ملحقات الكمبيوتر",
+    "subcategory": "مشتتات حرارية",
+    "price": 49,
+    "stock": 60
+  },
+  {
+    "product_id": 9,
+    "name": "لوحة مفاتيح ألعاب Razer BlackWidow V3",
+    "brand": "Razer",
+    "category": "ملحقات الكمبيوتر",
+    "subcategory": "لوحات مفاتيح الألعاب",
+    "price": 129,
+    "stock": 45
+  },
+  {
+    "product_id": 10,
+    "name": "فأرة لاسلكية Logitech MX Master 3",
+    "brand": "Logitech",
+    "category": "ملحقات الكمبيوتر",
+    "subcategory": "فئة الفأرات",
+    "price": 99,
+    "stock": 50
+  },
+  {
+    "product_id": 11,
+    "name": "مكنسة كهربائية Dyson V11",
+    "brand": "Dyson",
+    "category": "أجهزة كهربائية منزلية",
+    "subcategory": "مكانس كهربائية",
+    "price": 499,
+    "stock": 20
+  },
+  {
+    "product_id": 12,
+    "name": "غسالة ملابس LG Front Load 10 كجم",
+    "brand": "LG",
+    "category": "أجهزة كهربائية منزلية",
+    "subcategory": "غسالات الملابس",
+    "price": 799,
+    "stock": 10
+  },
+  {
+    "product_id": 13,
+    "name": "مايكروويف Panasonic 32 لتر",
+    "brand": "Panasonic",
+    "category": "أجهزة كهربائية منزلية",
+    "subcategory": "مايكروويف",
+    "price": 149,
+    "stock": 30
+  },
+  {
+    "product_id": 14,
+    "name": "مكواة بخار Philips PerfectCare Elite",
+    "brand": "Philips",
+    "category": "أجهزة كهربائية منزلية",
+    "subcategory": "مكوايات بخار",
+    "price": 79,
+    "stock": 40
+  },
+  {
+    "product_id": 15,
+    "name": "فرن كهربائي Bosch 60 سم",
+    "brand": "Bosch",
+    "category": "أجهزة كهربائية منزلية",
+    "subcategory": "أفران كهربائية",
+    "price": 399,
+    "stock": 15
+  },
+  {
+    "product_id": 16,
+    "name": "طقم أدوات مائدة Corelle للخدمة الثمانية",
+    "brand": "Corelle",
+    "category": "منزل ومطبخ",
+    "subcategory": "أواني المائدة",
+    "price": 89,
+    "stock": 25
+  },
+  {
+    "product_id": 17,
+    "name": "مفرمة لحم KitchenAid",
+    "brand": "KitchenAid",
+    "category": "منزل ومطبخ",
+    "subcategory": "مفرمة لحم",
+    "price": 129,
+    "stock": 20
+  },
+ {
+    "product_id": 18,
+    "name": "مجموعة أدوات طهي Nonstick من Cuisinart",
+    "brand": "Cuisinart",
+    "category": "منزل ومطبخ",
+    "subcategory": "أدوات الطهي",
+    "price": 199,
+    "stock": 30
+  },
+  {
+    "product_id": 19,
+    "name": "طقم سكاكين مطبخ Damascus من Shun",
+    "brand": "Shun",
+    "category": "منزل ومطبخ",
+    "subcategory": "سكاكين المطبخ",
+    "price": 299,
+    "stock": 15
+  },
+  {
+    "product_id": 20,
+    "name": "موزع ماء ساخن وبارد من Primo",
+    "brand": "Primo",
+    "category": "منزل ومطبخ",
+    "subcategory": "موزعات المياه",
+    "price": 79,
+    "stock": 20
+  },
+  {
+    "product_id": 21,
+    "name": "مكتبة خشبية للكتب من IKEA",
+    "brand": "IKEA",
+    "category": "الأثاث",
+    "subcategory": "مكتبات الكتب",
+    "price": 149,
+    "stock": 25
+  },
+  {
+    "product_id": 22,
+    "name": "طاولة طعام مستطيلة من West Elm",
+    "brand": "West Elm",
+    "category": "الأثاث",
+    "subcategory": "طاولات الطعام",
+    "price": 399,
+    "stock": 10
+  },
+  {
+    "product_id": 23,
+    "name": "صوفا قماشية بتصميم عصري من Wayfair",
+    "brand": "Wayfair",
+    "category": "الأثاث",
+    "subcategory": "صوفا",
+    "price": 799,
+    "stock": 15
+  },
+  {
+    "product_id": 24,
+    "name": "مرآة حائط مطلية من Pier 1 Imports",
+    "brand": "Pier 1 Imports",
+    "category": "الديكور",
+    "subcategory": "مرايا الحائط",
+    "price": 69,
+    "stock": 30
+  },
+  {
+    "product_id": 25,
+    "name": "لوحة فنية أصلية مع إطار من Pottery Barn",
+    "brand": "Pottery Barn",
+    "category": "الديكور",
+    "subcategory": "لوحات فنية",
+    "price": 149,
+    "stock": 20
+  },
+  {
+    "product_id": 26,
+    "name": "مصباح طاولة بتصميم هندسي من HomeGoods",
+    "brand": "HomeGoods",
+    "category": "الديكور",
+    "subcategory": "مصابيح الطاولة",
+    "price": 49,
+    "stock": 40
+  },
+  {
+    "product_id": 27,
+    "name": "سجادة صوفية فاخرة من Crate & Barrel",
+    "brand": "Crate & Barrel",
+    "category": "الديكور",
+    "subcategory": "السجاد",
+    "price": 299,
+    "stock": 10
+  },
+  {
+    "product_id": 28,
+    "name": "مزهرية زجاجية من Anthropologie",
+    "brand": "Anthropologie",
+    "category": "الديكور",
+    "subcategory": "مزهريات",
+    "price": 39,
+    "stock": 25
+  },
+  {
+    "product_id": 29,
+    "name": "مروحة سقف بتصميم عصري من Home Depot",
+    "brand": "Home Depot",
+    "category": "الديكور",
+    "subcategory": "مراوح السقف",
+    "price": 129,
+    "stock": 15
+  },
+  {
+    "product_id": 30,
+    "name": "ساعة حائط فنية من Urban Outfitters",
+    "brand": "Urban Outfitters",
+    "category": "الديكور",
+    "subcategory": "ساعات الحائط",
+    "price": 59,
+    "stock": 20
+  }
+]
+

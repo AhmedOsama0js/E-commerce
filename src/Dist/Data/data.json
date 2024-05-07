@@ -1,0 +1,84 @@
+{
+"sell": [
+    {
+      "operationType": "buy",
+      "timestamp": "2023-01-01T08:00:00",
+      "price": 100,
+      "completed": true,
+      "amount": 1,
+      "total": 25
+    },
+    {
+      "operationType": "sell",
+      "timestamp": "2023-01-02T10:30:00",
+      "price": 105,
+      "completed": false,
+      "amount": 2,
+      "total": 19.6
+    },
+    {
+      "operationType": "buy",
+      "timestamp": "2023-01-03T12:45:00",
+      "price": 98,
+      "completed": true,
+      "amount": 6,
+      "total": 84
+    },
+    {
+      "operationType": "sell",
+      "timestamp": "2023-01-04T15:20:00",
+      "price": 110,
+      "completed": true,  
+      "amount": 3,
+      "total": 22.5
+    },
+    {
+      "operationType": "buy",
+      "timestamp": "2023-01-05T09:10:00",
+      "price": 102,
+      "completed": false,
+      "amount": 2,
+      "total": 36
+    },
+    {
+      "operationType": "sell",
+      "timestamp": "2023-01-06T11:30:00",
+      "price": 108,
+      "completed": true,  
+      "amount": 4,
+      "total": 51
+    },
+    {
+      "operationType": "buy",
+      "timestamp": "2023-01-07T14:15:00",
+      "price": 97,
+      "completed": false,
+      "amount": 1,
+      "total": 20
+    },
+    {
+      "operationType": "sell",
+      "timestamp": "2023-01-08T16:40:00",
+      "price": 112,
+      "completed": true,
+      "amount": 5,
+      "total": 40
+    },
+    {
+      "operationType": "buy",
+      "timestamp": "2023-01-09T10:05:00",
+      "price": 99,
+      "completed": true,
+      "amount": 3,
+      "total": 45.75
+    },
+    {
+      "operationType": "sell",
+      "timestamp": "2023-01-10T12:20:00",
+      "price": 107,
+      "completed": false,
+      "amount": 2,
+      "total": 21
+    }
+  ]
+}

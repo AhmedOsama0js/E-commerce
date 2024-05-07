@@ -1,0 +1,207 @@
+.container {
+  padding: 5px;
+}
+.container h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.container form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 90%;
+}
+
+.ContentForm,
+.ContentForm .mainText,
+.ContentForm .mainText .prices,
+.ContentForm .selector,
+.ContentForm .colors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.ContentForm {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ContentForm .mainText .prices {
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.container h2 {
+  text-align: center;
+  color: var(--main-color);
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.imgContainer .imageBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgContainer .imageCover,
+.imgContainer .images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.imgContainer .images {
+  border-radius: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.imgContainer .imageCover img {
+  max-width: 120px;
+  border-radius: 12px;
+}
+
+.imgContainer .images .container {
+  background-color: #69686886;
+  border-radius: 8px;
+  position: relative;
+}
+.imgContainer .images .container .close {
+  background-color: #ac050570;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ffffff4b;
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgContainer .images img {
+  width: 35px;
+  height: 35px;
+  border-radius: 25%;
+}
+/* .containerForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: fit-content;
+  width: -moz-fit-content;
+  height: 100%;
+  padding: 5px;
+  gap: 10px;
+} */
+
+input[type="file"] {
+  display: none;
+}
+
+.customFileInput {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  background-image: var(--background-image);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+.boxInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.boxInput label {
+  font-size: 12px;
+  align-self: flex-start;
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+.boxInput input,
+.boxInput select,
+.ContentForm .boxInput textarea {
+  padding: 5px 10px;
+  color: var(--color);
+  max-width: 225px;
+  background-color: var(--second-background-color);
+  border: 1px solid #dad1d125;
+  border-radius: 12px;
+}
+.ContentForm .boxInput textarea {
+  resize: none;
+  height: 330px;
+  height: 80px;
+}
+.ContentForm .selector .boxInput select {
+  width: 130px;
+}
+.ContentForm .mainText .prices .boxInput input {
+  width: 70px;
+}
+.ContentForm .colors .boxInput {
+  width: auto;
+}
+.ContentForm .colors .boxInput input {
+  width: 50px;
+  padding: 1px;
+}
+
+.boxInput select {
+  width: 100%;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.boxInput select option {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.boxInput select option:first-child {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.error {
+  align-items: start;
+  padding-left: 5px;
+  font-size: 10px;
+  color: rgb(231, 53, 53);
+}
+
+.bodyDelete {
+  padding: 20px 10px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}

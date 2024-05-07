@@ -1,0 +1,42 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000025;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.5s;
+}
+
+.container .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.container .body {
+  transition: 0.7s;
+  max-width: 90vw;
+  max-height: 90vh;
+  background-color: var(--between-background-color);
+  position: relative;
+  width: fit-content;
+  border-radius: 16px;
+  width: -moz-fit-content;
+  padding: 5px;
+}
+
+.btn {
+  bottom: unset;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  padding: 10px;
+  border-radius: 50%;
+}

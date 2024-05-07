@@ -1,0 +1,27 @@
+.App {
+  width: 100%;
+  background-color: var(--between-background-color);
+  /* border-radius: 20px; */
+  overflow: hidden;
+  height: 100vh ;
+  display: flex;
+}
+
+.body {
+  width: calc(100% - 120px);
+  height: 100vh;
+}
+
+.body .content {
+  background-color: var(--second-background-color);
+  height: calc(100% - 70px);
+  margin: 10px;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+@media (max-width: 977px) {
+  .body {
+    width: calc(100% - 50px);
+  }
+}

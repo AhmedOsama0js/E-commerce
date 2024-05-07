@@ -1,0 +1,40 @@
+.GoPages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.GoPages a {
+  width: 100%;
+  padding: 10px 5px;
+  display: flex;
+  align-items: center;
+
+  border-radius: 8px;
+  gap: 10px;
+  transition: background 0.5s;
+}
+
+.GoPages a.active {
+  background-image: linear-gradient(30deg, transparent, transparent, #00968854);
+  box-shadow: inset 0px 0px 2px #1a1919;
+  transition: background 0.5s;
+}
+
+.GoPages a .name {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+@media (max-width: 977px) {
+  .GoPages a {
+    justify-content: center;
+  }
+
+  .GoPages a .name {
+    display: none;
+  }
+}

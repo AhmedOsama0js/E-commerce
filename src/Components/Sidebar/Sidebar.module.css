@@ -1,0 +1,17 @@
+.sidebarContainer{
+padding: 30px 5px ;
+border-radius: 16px;
+background-color:var(--head-background-color);
+width: 150px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+flex-direction: column;
+}
+
+@media(max-width:977px){
+.sidebarContainer{
+  width: 50px;
+}
+}

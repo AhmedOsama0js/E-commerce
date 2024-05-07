@@ -1,0 +1,27 @@
+.container {
+  height:100% ;
+  width: 100%;
+  display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      gap: 10px;
+   /* background-color: #056d6849; */
+    }
+
+.container .data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  grid-column: span 7;
+  grid-row: span 6;
+}
+
+.container .chart1 {
+  grid-column: span 5;
+  grid-row: span 12;
+}
+.container .chart2 {
+      grid-column: span 7;
+      grid-row: span 6;
+}

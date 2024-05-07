@@ -1,0 +1,109 @@
+.container {
+  display: grid;
+  margin:  10px;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+
+.container .card {
+  display: flex;
+  border: 1px solid #212124;
+  justify-content: space-evenly;
+  border-radius: 16px;
+  background-image: linear-gradient(
+    30deg,
+    transparent,
+    transparent,
+    transparent,
+    var(--main-color)
+  );
+  box-shadow: -2px 13px 20px 0px #0000008f, inset 20px -3px 13px 2px #1f1e1e79;
+  padding: 10px;
+}
+
+.container > :nth-child(1) {
+  background-image: linear-gradient(
+    30deg,
+    transparent,
+    transparent,
+    transparent,
+    #685e29
+  );
+}
+.container > :nth-child(2) {
+  background-image: linear-gradient(
+    30deg,
+    transparent,
+    transparent,
+    transparent,
+    #1d585e
+  );
+}
+.container > :nth-child(3) {
+  background-image: linear-gradient(
+    30deg,
+    transparent,
+    transparent,
+    transparent,
+    #8b2d37
+  );
+}
+.container .card .left{
+  width: 60%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .card .right{
+  width: 40%;
+}
+
+.container .card .head {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.container .card .head .icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 22px;
+}
+
+.container .card:nth-child(1) .icon {
+  background-color: #685e29;
+}
+
+.container .card:nth-child(2) .icon {
+  background-color: #1d585e;
+}
+
+.container .card:nth-child(3) .icon {
+  background-color: #8b2d37;
+}
+
+.container .card .amount {
+  font-size: 22px;
+  font-weight: 700;
+}
+.container .card .total {
+  color: var(--second-color);
+  font-size: 12px;
+}
+
+@media (max-width: 977px) {
+.container {
+  gap: 20px;
+}
+}

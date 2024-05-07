@@ -1,0 +1,51 @@
+.body {
+  background-image: linear-gradient(
+    30deg,
+    transparent,
+    var(--between-background-color),
+    #00968854
+  );
+  width: 90%;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  box-shadow: inset 0px 0px 2px #1a1919;
+
+}
+
+.body .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.body .time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.body .time p {
+  font-size: 12px;
+}
+
+@media (max-width: 977px) {
+    .body{
+      padding: 0;
+    }
+  .body .header  h6 {
+    display: none;
+  }
+  .body .time p {
+    font-size: 8px;
+}
+.body .time p:last-child{
+  font-size: 7px;
+}
+}

@@ -1,0 +1,57 @@
+.main {
+  position: relative;
+  height: calc(100vh - 150px) !important;
+}
+.mainDivS {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+.caverImage {
+  width: 500px;
+  /* height: 20%; */
+}
+.secondeS {
+  height: 500px !important;
+  width: 50% !important;
+}
+
+.secondeDiv {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.backgroundColor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -500;
+  transition: 0.5s;
+  background: linear-gradient(30deg, #000000dc, #313030d2);
+}
+.polit {
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 50%;
+  background-color: transparent !important;
+  border-radius:  1px solid red;
+}
+
+.dataSlid{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.dataSlid span {
+  padding: 5px;
+  border-radius: 50%;
+}

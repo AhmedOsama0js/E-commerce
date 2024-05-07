@@ -1,0 +1,26 @@
+.container {
+  height: calc(100vh - 100px);
+}
+.top {
+  height: 30%;
+  overflow-y: scroll;
+}
+.bottom {
+  height: 70%;
+
+  overflow-y: scroll;
+}
+
+@media (max-width: 977px) {
+  .container {
+    overflow-y: scroll;
+  }
+  .top {
+    height: fit-content;
+    margin-bottom: 30px;
+  }
+
+  .bottom {
+    height: fit-content;
+  }
+}

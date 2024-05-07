@@ -1,0 +1,94 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Customer 1",
+      "image": "https://picsum.photos/id/240/200/200",
+      "email": "customer1@example.com",
+      "gender": "Male",
+      "payment_method": "Credit Card",
+      "amount_spent": 500.0
+    },
+    {
+      "id": 2,
+      "name": "Customer 2",
+      "image": "https://picsum.photos/id/241/200/200",
+      "email": "customer2@example.com",
+      "gender": "Female",
+      "payment_method": "PayPal",
+      "amount_spent": 700.0
+    },
+    {
+      "id": 3,
+      "name": "Customer 3",
+      "image": "https://picsum.photos/id/242/200/200",
+      "email": "customer3@example.com",
+      "gender": "Male",
+      "payment_method": "Cash",
+      "amount_spent": 300.0
+    },
+    {
+      "id": 4,
+      "name": "Customer 4",
+      "image": "https://picsum.photos/id/243/200/200",
+      "email": "customer4@example.com",
+      "gender": "Female",
+      "payment_method": "Credit Card",
+      "amount_spent": 1000.0
+    },
+    {
+      "id": 5,
+      "name": "Customer 5",
+      "image": "https://picsum.photos/id/244/200/200",
+      "email": "customer5@example.com",
+      "gender": "Male",
+      "payment_method": "PayPal",
+      "amount_spent": 450.0
+    },
+    {
+      "id": 6,
+      "name": "Customer 6",
+      "image": "https://picsum.photos/id/250/200/200",
+      "email": "customer6@example.com",
+      "gender": "Female",
+      "payment_method": "Cash",
+      "amount_spent": 800.0
+    },
+    {
+      "id": 7,
+      "name": "Customer 7",
+      "image":"https://picsum.photos/id/251/200/200",
+      "email": "customer7@example.com",
+      "gender": "Male",
+      "payment_method": "Credit Card",
+      "amount_spent": 600.0
+    },
+    {
+      "id": 8,
+      "name": "Customer 8",
+      "image": "https://picsum.photos/id/247/200/200",
+      "email": "customer8@example.com",
+      "gender": "Female",
+      "payment_method": "PayPal",
+      "amount_spent": 1200.0
+    },
+    {
+      "id": 9,
+      "name": "Customer 9",
+      "image": "https://picsum.photos/id/248/200/200",
+      "email": "customer9@example.com",
+      "gender": "Male",
+      "payment_method": "Cash",
+      "amount_spent": 350.0
+    },
+    {
+      "id": 10,
+      "name": "Customer 10",
+      "image": "https://picsum.photos/id/249/200/200",
+      "email": "customer10@example.com",
+      "gender": "Female",
+      "payment_method": "Credit Card",
+      "amount_spent": 900.0
+    }
+  ]
+}

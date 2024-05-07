@@ -1,0 +1,113 @@
+.form{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.info{
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.boxInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.boxInput label {
+  font-size: 12px;
+  align-self: flex-start;
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+.boxInput input{
+  padding: 7px 10px;
+  color: var(--color);
+  max-width: 250px;
+  background-color: var(--second-background-color);
+  border: 1px solid #dad1d125;
+  border-radius: 12px;
+}
+.ContentForm .boxInput textarea {
+  resize: none;
+  height: 330px;
+  height: 80px;
+}
+.ContentForm .selector .boxInput select {
+  width: 130px;
+}
+.ContentForm .mainText .prices .boxInput input {
+  width: 70px;
+}
+.ContentForm .colors .boxInput {
+  width: auto;
+}
+.ContentForm .colors .boxInput input {
+  width: 50px;
+  padding: 1px;
+}
+
+.boxInput select {
+  width: 100%;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.boxInput select option {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.boxInput select option:first-child {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.btns{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.image {
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+}
+
+.image img {
+  height: 180px;
+  border-radius: 50%;
+  background-image: linear-gradient(40deg, transparent, #08302d);
+}
+
+.customFileInput {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 100px;
+  cursor: pointer;
+  color: #ffffff;
+  z-index: 9999;
+  opacity: 0.6;
+  filter: drop-shadow(5px 4px 8px #000000); 
+}
+.error{
+  color: rgb(180, 39, 39);
+  font: 12px;
+}

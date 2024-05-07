@@ -1,0 +1,27 @@
+.image {
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.image img {
+  height: 180px;
+  border-radius: 50%;
+  background-image: linear-gradient(40deg, transparent, #08302d);
+}
+
+.customFileInput {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  background-image: var(--background-image);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
