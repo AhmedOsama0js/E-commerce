@@ -111,7 +111,7 @@ export default function Subcategory() {
       <MainTable
         data={records?.data || []}
         columns={columns}
-        form={<SubcategoryForm type="add" SendData={[]} />}
+        form={<SubcategoryForm type="add" SendData={[]} loading={loading} />}
       />
       {error ? (
         <ErrorModel
@@ -140,7 +140,13 @@ export default function Subcategory() {
       {model && (
         <MainModel
           setModel={setModel}
-          content={<SubcategoryForm type="edit" SendData={sendData} />}
+          content={
+            <SubcategoryForm
+              type="edit"
+              SendData={sendData}
+              loading={loading}
+            />
+          }
         />
       )}
       {modelDelete && (

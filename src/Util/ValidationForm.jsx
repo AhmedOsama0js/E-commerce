@@ -12,20 +12,32 @@ export const subcategoryFormValid = Yup.object().shape({
   image: Yup.mixed().required(" is required"),
 });
 
+
 export const productFormValid = Yup.object().shape({
-  title: Yup.string().required("Title is required"),
+  title: Yup.string()
+    .required(" is required")
+    .min(3, " must be at least 3 "),
   colors: Yup.array().required("Color is required"),
-  description: Yup.string().required("Description is required"),
-  coverImage: Yup.mixed().required("cover Image is required"),
-  Images: Yup.mixed().required(" Images is required"),
-  price: Yup.number().required("Price is required"),
-  priceAfterDiscount: Yup.string().required("Discount is required"),
-  quantity: Yup.number().required("Quantity is required"),
-  ratingQuantity: Yup.number().required("Rating is required"),
-  category: Yup.string().required("Category is required"),
-  subCategory: Yup.string().required("Subcategory is required"),
-  brand: Yup.string().required("Brand is required"),
+  description: Yup.string()
+    .required(" is required")
+    .min(20, " must be at least 20 characters"),
+  coverImage: Yup.mixed().required("Cover Image is required"),
+  Images: Yup.mixed().required("Images are required"),
+  price: Yup.number().required("*"),
+  priceAfterDiscount: Yup.string().test(
+    "is-less-than-price",
+    " must be less than Price",
+    function (value) {
+      const price = this.parent.price;
+      return parseFloat(value) < parseFloat(price);
+    }
+  ),
+  quantity: Yup.number().required("*"),
+  category: Yup.string().required(" is required"),
+  subCategory: Yup.string().required(" is required"),
+  brand: Yup.string().required(" is required"),
 });
+
 
 
 

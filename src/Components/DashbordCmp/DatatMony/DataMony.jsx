@@ -14,7 +14,7 @@ export default function DataMony() {
   const dataMount = [40, 10, 100, 90, 30, 90, 10];
 
   return (<>
-            <h5>Dashboard</h5>
+      <h5>Dashboard</h5>
     <div className={css.container}>
       <div className={css.card}>
         <div className={css.left}>

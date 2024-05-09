@@ -12,12 +12,11 @@ export default function DashBody() {
           <MainDashChart />
         </div>
         <div className={css.right}>
-          <h6>Sell Order</h6>
+          <h6>Operation Order</h6>
           <SellOrder />
         </div>
         <div className={css.bottom}>
-          <h6>Recent Activities</h6>
-          <Resent/>
+          <Resent />
         </div>
       </div>
     </>

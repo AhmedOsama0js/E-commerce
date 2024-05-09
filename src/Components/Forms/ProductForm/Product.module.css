@@ -4,6 +4,7 @@
 .container h3 {
   text-align: center;
   margin-bottom: 10px;
+  font-size: 25px;
 }
 
 .container form {
@@ -36,10 +37,6 @@
   margin-top: 5px;
 }
 
-.container h2 {
-  text-align: center;
-  color: var(--main-color);
-}
 
 .imgContainer {
   display: flex;
@@ -49,13 +46,15 @@
 .imgContainer .imageBox {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .imgContainer .imageCover,
 .imgContainer .images {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   gap: 10px;
 }
@@ -68,7 +67,7 @@
 }
 
 .imgContainer .imageCover img {
-  max-width: 120px;
+  max-width: 150px;
   border-radius: 12px;
 }
 
@@ -89,11 +88,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .imgContainer .images img {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  /* height: 35px; */
   border-radius: 25%;
 }
 /* .containerForm {
@@ -133,7 +133,7 @@ input[type="file"] {
 }
 
 .boxInput label {
-  font-size: 12px;
+  font-size: 13px;
   align-self: flex-start;
   margin-bottom: 5px;
   padding-left: 5px;
@@ -142,23 +142,24 @@ input[type="file"] {
 .boxInput input,
 .boxInput select,
 .ContentForm .boxInput textarea {
-  padding: 5px 10px;
+  padding: 7px 10px;
   color: var(--color);
-  max-width: 225px;
+  width: 230px;
   background-color: var(--second-background-color);
   border: 1px solid #dad1d125;
   border-radius: 12px;
+  font-size: 14px;
+
 }
 .ContentForm .boxInput textarea {
   resize: none;
-  height: 330px;
-  height: 80px;
+  height: 90px;
 }
 .ContentForm .selector .boxInput select {
-  width: 130px;
+  width: 145px;
 }
 .ContentForm .mainText .prices .boxInput input {
-  width: 70px;
+  width: 80px;
 }
 .ContentForm .colors .boxInput {
   width: auto;
@@ -193,7 +194,7 @@ input[type="file"] {
 .error {
   align-items: start;
   padding-left: 5px;
-  font-size: 10px;
+  font-size: 11px;
   color: rgb(231, 53, 53);
 }
 

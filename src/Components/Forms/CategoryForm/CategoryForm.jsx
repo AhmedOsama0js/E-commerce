@@ -5,13 +5,13 @@ import { useDispatch } from "react-redux";
 import { categoryFormValid } from "../../../Util/ValidationForm";
 import { addCategory, editCategory } from "../../../Store/categorySlice";
 
-export default function CategoryForm({ type, SendData}) {
+export default function CategoryForm({ type, SendData, loading }) {
   const [img, setImg] = useState(SendData?.image || null);
   const dispatch = useDispatch();
 
+
   const fileChange = (e) => {
     const file = e.target.files[0];
-
     if (file) {
       const imgs = URL.createObjectURL(file);
       setImg(imgs);
@@ -53,7 +53,6 @@ export default function CategoryForm({ type, SendData}) {
     });
     setImg(null);
   };
-
   return (
     <div className={css.container}>
       <h3>Category</h3>
@@ -95,8 +94,8 @@ export default function CategoryForm({ type, SendData}) {
           </div>
         </div>
         <div className={css.btns}>
-          <button className="button" type="submit">
-            Send
+          <button className="button" type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Send"}
           </button>
           <button className="button" type="reset">
             Reset

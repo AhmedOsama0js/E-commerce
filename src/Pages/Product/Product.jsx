@@ -207,7 +207,7 @@ export default function Product() {
       <MainTable
         data={records?.data || []}
         columns={columns}
-        form={<ProductForm SendData={[]} type="add" />}
+        form={<ProductForm SendData={[]} type="add" loading={loading} />}
       />
       {error ? (
         <ErrorModel
@@ -236,7 +236,9 @@ export default function Product() {
       {model && (
         <MainModel
           setModel={setModel}
-          content={<ProductForm SendData={sendData} type="edit" />}
+          content={
+            <ProductForm SendData={sendData} type="edit" loading={loading} />
+          }
         />
       )}
       {modelDelete && (

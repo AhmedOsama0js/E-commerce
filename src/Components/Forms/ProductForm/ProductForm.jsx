@@ -7,8 +7,9 @@ import { getSubcategory } from "../../../Store/subcategorySlice";
 import { getBrand } from "../../../Store/brandSlice";
 import { IoIosClose } from "react-icons/io";
 import { addProducts } from "../../../Store/productSlice";
+import { productFormValid } from "../../../Util/ValidationForm";
 
-export default function ProductForm({ SendData, type }) {
+export default function ProductForm({ SendData, type,loading }) {
   const [coverImage, setCoverImage] = useState(SendData?.imageCover || null);
   const [Images, setImages] = useState(SendData?.images || []);
   const [valueImages, setValueImages] = useState(SendData?.images || []);
@@ -41,7 +42,7 @@ export default function ProductForm({ SendData, type }) {
       brand: SendData?.brand?._id || "",
     },
 
-    // validationSchema: productFormValid,
+    validationSchema: productFormValid,
 
     onSubmit: async (values) => {
       const formData = new FormData();
@@ -386,8 +387,8 @@ export default function ProductForm({ SendData, type }) {
           </div>
         </div>
         <div className={css.btns}>
-          <button className="button" type="submit">
-            Send
+          <button className="button" type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Send"}
           </button>
           <button className="button" type="reset">
             Reset

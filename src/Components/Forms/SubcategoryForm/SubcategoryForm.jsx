@@ -9,7 +9,7 @@ import {
   editSubcategory,
 } from "../../../Store/subcategorySlice";
 
-export default function SubcategoryForm({ type, SendData }) {
+export default function SubcategoryForm({ type, SendData, loading }) {
   const [img, setImg] = useState(SendData?.image || null);
   const { records } = useSelector((state) => state?.category);
   const dispatch = useDispatch();
@@ -42,7 +42,6 @@ export default function SubcategoryForm({ type, SendData }) {
       formData.append("category", values.category);
       formData.append("image", values.image);
 
-
       try {
         if (type === "edit") {
           if (typeof values.image === "object") {
@@ -54,7 +53,7 @@ export default function SubcategoryForm({ type, SendData }) {
             //     delete values[key];
             //   }
             // });
-            formData.delete("image")
+            formData.delete("image");
             dispatch(editSubcategory([SendData?._id, formData]));
           }
         }
@@ -142,8 +141,8 @@ export default function SubcategoryForm({ type, SendData }) {
           </div>
         </div>
         <div className={css.btns}>
-          <button className="button" type="submit">
-            Send
+          <button className="button" type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Send"}
           </button>
           <button className="button" type="reset">
             Reset

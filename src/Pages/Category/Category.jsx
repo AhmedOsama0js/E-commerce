@@ -19,7 +19,6 @@ const Category = () => {
   );
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getCategory());
     if (complete) {
@@ -101,7 +100,7 @@ const Category = () => {
       <MainTable
         data={records?.data || []}
         columns={columns}
-        form={<CategoryForm type="add" SendData={[]} />}
+        form={<CategoryForm type="add" SendData={[]} loading={loading} />}
       />
       {error ? (
         <ErrorModel
@@ -130,7 +129,9 @@ const Category = () => {
       {model && (
         <MainModel
           setModel={setModel}
-          content={<CategoryForm type="edit" SendData={sendData} />}
+          content={
+            <CategoryForm type="edit" SendData={sendData} loading={loading} />
+          }
         />
       )}
       {modelDelete && (
