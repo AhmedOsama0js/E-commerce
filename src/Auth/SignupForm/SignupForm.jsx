@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../Store/authSlice";
 import ErrorModel from "../../Model/errorModel/ErrorModel";
 import { useNavigate } from "react-router-dom";
+import {signupFormValid} from "../../Util/ValidationForm"
 
 export default function SignupForm() {
   const navigate = useNavigate();
@@ -22,7 +23,9 @@ export default function SignupForm() {
       password: "",
       passwordConfirm: "",
     },
-    // validationSchema: categoryFormValid,
+
+
+    validationSchema: signupFormValid,
     onSubmit: async (values) => {
       try {
         dispatch(signup(values));
@@ -39,6 +42,9 @@ export default function SignupForm() {
     <div className={css.form}>
       <h1>Create Account</h1>
       <form onSubmit={formik.handleSubmit}>
+        {formik.touched.name && formik.errors.name && (
+          <div className={css.error}>{formik.errors.name}</div>
+        )}
         <div className={css.inputContainer}>
           <span>
             <IoIosPerson />
@@ -51,6 +57,9 @@ export default function SignupForm() {
             {...formik.getFieldProps("name")}
           />
         </div>
+        {formik.touched.email && formik.errors.email && (
+          <div className={css.error}>{formik.errors.email}</div>
+        )}
         <div className={css.inputContainer}>
           <span>
             <MdEmail />
@@ -63,6 +72,9 @@ export default function SignupForm() {
             {...formik.getFieldProps("email")}
           />
         </div>
+        {formik.touched.password && formik.errors.password && (
+          <div className={css.error}>{formik.errors.password}</div>
+        )}
         <div className={css.inputContainer}>
           <span>
             <FaLock />
@@ -76,6 +88,9 @@ export default function SignupForm() {
             {...formik.getFieldProps("password")}
           />
         </div>
+        {formik.touched.passwordConfirm && formik.errors.passwordConfirm && (
+          <div className={css.error}>{formik.errors.passwordConfirm}</div>
+        )}
         <div className={css.inputContainer}>
           <span>
             <FaLock />

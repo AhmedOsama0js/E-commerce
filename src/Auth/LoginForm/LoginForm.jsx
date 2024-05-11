@@ -9,9 +9,10 @@ import { login } from "../../Store/authSlice";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import ErrorModel from "../../Model/errorModel/ErrorModel";
-
+import { loginFormValid } from "../../Util/ValidationForm";
+// import { getMe } from "../../Store/getMeSlice";
 export default function LoginForm() {
-  const { records, loading, error, complete } = useSelector(
+  const { records, loading, error, completeLogin } = useSelector(
     (state) => state.auth
   );
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function LoginForm() {
       email: "",
       password: "",
     },
-    // validationSchema: categoryFormValid,
+    validationSchema: loginFormValid,
     onSubmit: (values) => {
       try {
         dispatch(login(values));
@@ -31,19 +32,27 @@ export default function LoginForm() {
     },
   });
 
-  if (complete) {
+
+  if (completeLogin) {
     Cookies.set("access_token", `${records.token}`, { expires: 7 });
-    if (records?.data?.role === "admin") {
-      navigate("/dashboard");
-    } else {
-      navigate("/");
-    }
+    setTimeout(() => {
+      // dispatch(getMe());
+      if (records?.data?.role === "admin" && Cookies.get("access_token")) {
+        navigate("/dashboard");
+      } else {
+        navigate("/");
+      }
+    }, 3000);
   }
+
 
   return (
     <div className={css.form}>
       <h1>User Login</h1>
       <form onSubmit={formik.handleSubmit}>
+        {formik.touched.email && formik.errors.email && (
+          <div className={css.error}>{formik.errors.email}</div>
+        )}
         <div className={css.inputContainer}>
           <span>
             <MdEmail />
@@ -57,6 +66,9 @@ export default function LoginForm() {
             {...formik.getFieldProps("email")}
           />
         </div>
+        {formik.touched.password && formik.errors.password && (
+          <div className={css.error}>{formik.errors.password}</div>
+        )}
         <div className={css.inputContainer}>
           <span>
             <FaLock />
@@ -82,16 +94,23 @@ export default function LoginForm() {
           msg={error}
           loading={loading}
           error={error}
-          complete={complete}
+          complete={completeLogin}
         />
       ) : null}
-
       {loading ? (
         <ErrorModel
           msg={error}
           loading={loading}
           error={error}
-          complete={complete}
+          complete={completeLogin}
+        />
+      ) : null}
+      {completeLogin ? (
+        <ErrorModel
+          msg={error}
+          loading={loading}
+          error={error}
+          complete={completeLogin}
         />
       ) : null}
     </div>

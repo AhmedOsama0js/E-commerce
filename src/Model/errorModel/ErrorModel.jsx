@@ -4,6 +4,7 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 import { GrStatusGood } from "react-icons/gr";
 
 export default function ErrorModel({ msg, loading, error, complete }) {
+  
   const [state, setState] = useState({ error, complete, loading });
 
   useEffect(() => {

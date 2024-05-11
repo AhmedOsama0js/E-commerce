@@ -39,9 +39,6 @@ export const productFormValid = Yup.object().shape({
 });
 
 
-
-
-
 export const brandFormValid = Yup.object().shape({
   name: Yup.string().required(" is required").min(3, " must be at least 3"),
   image: Yup.mixed().required("Image is required"),
@@ -57,4 +54,36 @@ export const getMeFormValid = Yup.object().shape({
       (value) => value.trim().length > 0
     ),
   phone: Yup.string().required(" is required").min(11, " must be at least 11"),
+});
+
+
+
+export const loginFormValid = Yup.object().shape({
+  email: Yup.string()
+    .required("Email is required")
+    .email("Invalid email address"),
+  password: Yup.string()
+    .required("Password is required")
+});
+
+export const signupFormValid = Yup.object().shape({
+  name: Yup.string()
+    .required("Name is required")
+    .min(3, "Name must be at least 3 characters"),
+  email: Yup.string()
+    .required("Email is required")
+    .email("Invalid email address"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(6, "Password must be at least 6 characters")
+    .matches(/^(?=.*[a-z])/, "Password needs one lowercase letter")
+    .matches(/^(?=.*[A-Z])/, "Password needs one uppercase letter")
+    .matches(/^(?=.*[@$!%*?&])/, "The password requires a (@,$,!,%,*,?,&)"),
+  passwordConfirm: Yup.string().test(
+    "passwords-match",
+    "Passwords must match",
+    function (value) {
+      return this.parent.password === value;
+    }
+  ),
 });

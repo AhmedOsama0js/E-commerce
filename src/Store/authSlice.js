@@ -5,7 +5,8 @@ const initState = {
   records: [],
   loading: false,
   error: false,
-  complete: false,
+  completeSignup: false,
+  completeLogin: false,
 };
 
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
@@ -47,35 +48,35 @@ const authSlice = createSlice({
       .addCase(login.pending, (state) => {
         state.loading = true;
         state.error = false;
-        state.complete = false;
+        state.completeLogin = false;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
         state.records = action.payload;
-        state.complete = true;
+        state.completeLogin = true;
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
         state.error = `Error: ${action.payload.message || action.payload}`;
-        state.complete = false;
+        state.completeLogin = false;
       })
 
       // signup
       .addCase(signup.pending, (state) => {
         state.loading = true;
         state.error = false;
-        state.complete = false;
+        state.completeSignup = false;
       })
       .addCase(signup.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
         state.records = action.payload;
-        state.complete = true;
+        state.completeSignup = true;
       })
       .addCase(signup.rejected, (state, action) => {
         state.loading = false;
         state.error = `Error: ${action.payload.message || action.payload}`;
-        state.complete = false;
+        state.completeSignup = false;
       });
   },
 });

@@ -79,14 +79,23 @@ const authSlice = createSlice({
       })
       .addCase(editMyData.fulfilled, (state, action) => {
         state.loading = false;
-        state.records.data ={...state.records.data ,...action.payload};
-        state.complete = true;
+        if (action.payload) {
+          state.records.data = { ...state.records.data, ...action.payload };
+          state.complete = true;
+        }
       })
       .addCase(editMyData.rejected, (state, action) => {
         state.loading = false;
-        state.error = `Error: ${action.payload}`;
+        if (action.payload.response && action.payload.response.data) {
+          state.error = `Error: ${action.payload.response.data.error}`;
+        } else if (action.error.message) {
+          state.error = `Error: ${action.error.message}`;
+        } else {
+          state.error = "Unknown error occurred";
+        }
         state.complete = false;
       });
+
   },
 });
 
