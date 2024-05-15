@@ -5,17 +5,17 @@ import MainBtn from "../MainBtn/MainBtn";
 import Cookies from "js-cookie";
 
 export default function LoginBtn() {
-  const access_token = Cookies.get("access_token");
+  const token = Cookies.get("access_token");
 
   useEffect(() => {
-    if (access_token) {
+    if (token) {
     console.log("good");
   }
-  }, [access_token]);
+  }, [token]);
   // come back to add User Data [user(photo-name-phone)]
   return (
     <>
-      {!access_token && (
+      {!token && (
         <Link title="Login" to="/login">
           <MainBtn btn={<FaUser />} />
         </Link>

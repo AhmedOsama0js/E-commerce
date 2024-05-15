@@ -11,14 +11,14 @@ const initState = {
 
 const access_token = Cookies.get("access_token");
 
-export const getMe = createAsyncThunk("me/getMe", async (_, thunkAPI) => {
+export const getMe = createAsyncThunk("me/getMe", async (cookies, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
   try {
     const response = await axios.get(
       "http://localhost:8008/api/v1/users/getMe",
       {
         headers: {
-          Authorization: `Bearer ${access_token}`,
+          Authorization: `Bearer ${cookies}`,
         },
       }
     );
@@ -80,7 +80,7 @@ const authSlice = createSlice({
       .addCase(editMyData.fulfilled, (state, action) => {
         state.loading = false;
         if (action.payload) {
-          state.records.data = { ...state.records.data, ...action.payload };
+          state.records = { ...state.records.data, ...action.payload };
           state.complete = true;
         }
       })

@@ -8,13 +8,10 @@ import { IoAdd } from "react-icons/io5";
 import { getMeFormValid } from "../../../Util/ValidationForm";
 
 export default function InfoAdmin() {
-  const { records, loading, error, complete } = useSelector(
-    (state) => state.me
-  );
+  const { records, loading, error, complete } = useSelector((state) => state.me);
   const [img, setImg] = useState(records?.data?.imageProfile);
   const dispatch = useDispatch();
   const formData = new FormData();
-
   const fileChange = (e) => {
     const file = e.target.files[0];
     if (file) {

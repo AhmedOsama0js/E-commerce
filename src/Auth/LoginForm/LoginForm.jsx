@@ -10,13 +10,27 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import ErrorModel from "../../Model/errorModel/ErrorModel";
 import { loginFormValid } from "../../Util/ValidationForm";
-// import { getMe } from "../../Store/getMeSlice";
+import { useEffect } from "react";
+
 export default function LoginForm() {
   const { records, loading, error, completeLogin } = useSelector(
     (state) => state.auth
   );
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    if (completeLogin) {
+      Cookies.set("access_token", `${records.token}`, { expires: 7 });
+        if (records?.data?.role === "admin" && Cookies.get("access_token")) {
+          navigate("/dashboard");
+        } else {
+          navigate("/");
+        }
+    }
+  } , [completeLogin, navigate, records, records.token])
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -31,21 +45,6 @@ export default function LoginForm() {
       }
     },
   });
-
-
-  if (completeLogin) {
-    Cookies.set("access_token", `${records.token}`, { expires: 7 });
-    setTimeout(() => {
-      // dispatch(getMe());
-      if (records?.data?.role === "admin" && Cookies.get("access_token")) {
-        navigate("/dashboard");
-      } else {
-        navigate("/");
-      }
-    }, 3000);
-  }
-
-
   return (
     <div className={css.form}>
       <h1>User Login</h1>

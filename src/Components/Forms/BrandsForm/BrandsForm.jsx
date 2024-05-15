@@ -8,6 +8,7 @@ import { addBrand, editBrand } from "../../../Store/brandSlice";
 export default function BrandsForm({ type, SendData, loading }) {
   const [img, setImg] = useState(SendData?.image || null);
   const dispatch = useDispatch();
+  
   const fileChange = (e) => {
     const file = e.target.files[0];
     if (file) {

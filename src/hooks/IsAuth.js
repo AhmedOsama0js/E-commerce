@@ -1,33 +1,31 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getMe } from "../Store/getMeSlice";
+import Cookies from "js-cookie";
 
-// const useIsAuth = () => {
-//   const [state, setState] = useState({});
+export const useUserData = () => {
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const accessToken = Cookies.get("access_token");
-//       try {
-//         const response = await axios.get(
-//           "http://localhost:8008/api/v1/users/getMe",
-//           {
-//             headers: {
-//               Authorization: `Bearer ${accessToken}`,
-//             },
-//           }
-//         );
-//         const data = response.data;
-//         setState(data);
-//       } catch (error) {
-//         console.error("Error fetching user data:", error.message);
-//         setState({});
-//       }
-//     };
+  const [role, setRole] = useState("wait");
+  const dispatch = useDispatch();
+  const cookies = Cookies.get("access_token");
 
-//     fetchData();
-//   }, []);
-//   return state;
-// };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (cookies) {
+          const response = await dispatch(getMe(cookies));
+          setRole(response.payload?.data?.role);
+        } else {
+          setRole("guest");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setRole("guest");
+      }
+    };
 
-// export default useIsAuth;
+    fetchData();
+  }, [cookies, dispatch]);
+
+  return { role };
+};
