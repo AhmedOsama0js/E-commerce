@@ -1,25 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import MainBtn from "../MainBtn/MainBtn";
 import Cookies from "js-cookie";
+import css from "./LoginBtn.module.css"
+import { Link } from "react-router-dom";
 
 export default function LoginBtn() {
   const token = Cookies.get("access_token");
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (token) {
-    console.log("good");
-  }
-  }, [token]);
-  // come back to add User Data [user(photo-name-phone)]
+  const Drop = (
+    <div className={`${css.dropContainer} ${isOpen ? css.block : css.none}`}>
+      <Link title="login" to="/login">
+        <div>login</div>
+      </Link>
+      <Link title="signup" to="/signup">
+        <div>singUp</div>
+      </Link>
+    </div>
+  );
+
   return (
-    <>
+    <div style={{ position: "relative" }}>
       {!token && (
-        <Link title="Login" to="/login">
-          <MainBtn btn={<FaUser />} />
-        </Link>
+        <>
+          <MainBtn btn={<FaUser onClick={() => setIsOpen(!isOpen)} />} />
+          {Drop}
+        </>
       )}
-    </>
+    </div>
   );
 }

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../Store/getMeSlice";
 import Cookies from "js-cookie";
 
 export const useUserData = () => {
+  const { loading } = useSelector((state) => state.me);
 
   const [role, setRole] = useState("wait");
+  const [userData, setUserDAta] = useState(null);
   const dispatch = useDispatch();
   const cookies = Cookies.get("access_token");
 
@@ -15,6 +17,7 @@ export const useUserData = () => {
         if (cookies) {
           const response = await dispatch(getMe(cookies));
           setRole(response.payload?.data?.role);
+          setUserDAta(response.payload?.data);
         } else {
           setRole("guest");
         }
@@ -26,6 +29,5 @@ export const useUserData = () => {
 
     fetchData();
   }, [cookies, dispatch]);
-
-  return { role };
+  return { role, userData, loading };
 };

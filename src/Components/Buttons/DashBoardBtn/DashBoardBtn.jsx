@@ -8,7 +8,6 @@ import {useUserData} from "../../../hooks/IsAuth"
 export default function DashBoardBtn() {
   const {role} = useUserData()
   // const { records } = useSelector((state) => state.me);
-  console.log(role);
   return (
     <>
       {role === "admin" && (

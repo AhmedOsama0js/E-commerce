@@ -17,6 +17,7 @@ import LoginForm from "./Auth/LoginForm/LoginForm.jsx";
 import SignupForm from "./Auth/SignupForm/SignupForm.jsx";
 import IsAuth from "./Auth/isAuth/IsAuth.jsx";
 import MyPage from "./Pages/myPage/MyPage.jsx";
+import NotFoundPage from "./Components/NotFoundPage/NotFoundPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 

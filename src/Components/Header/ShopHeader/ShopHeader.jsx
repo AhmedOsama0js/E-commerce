@@ -9,6 +9,7 @@ import { HiShoppingCart } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import DashBoardBtn from "../../Buttons/DashBoardBtn/DashBoardBtn";
 import LoginBtn from "../../Buttons/LoginBtn/LoginBtn";
+import UserBtn from "../../Buttons/UserBtn/UserBtn";
 
 export default function ShopHeader() {
   const formik = useFormik({
@@ -50,6 +51,7 @@ export default function ShopHeader() {
       </div>
       <div className={css.icons}>
         <DashBoardBtn />
+        <UserBtn/>
         <LoginBtn/>
         <MainBtn btn={<FaHeart title="favorite" />} />
         <MainBtn btn={<HiShoppingCart title="car" />} />
