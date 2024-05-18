@@ -9,16 +9,16 @@ const initState = {
   complete: false,
 };
 
-const access_token = Cookies.get("access_token");
+const access_token = ()=> Cookies.get("access_token");
 
-export const getMe = createAsyncThunk("me/getMe", async (cookies, thunkAPI) => {
+export const getMe = createAsyncThunk("me/getMe", async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
   try {
     const response = await axios.get(
       "http://localhost:8008/api/v1/users/getMe",
       {
         headers: {
-          Authorization: `Bearer ${cookies}`,
+          Authorization: `Bearer ${access_token()}`,
         },
       }
     );
@@ -38,7 +38,7 @@ export const editMyData = createAsyncThunk(
         formData,
         {
           headers: {
-            Authorization: `Bearer ${access_token}`,
+            Authorization: `Bearer ${access_token()}`,
           },
         }
       );

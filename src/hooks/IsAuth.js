@@ -26,8 +26,8 @@ export const useUserData = () => {
         setRole("guest");
       }
     };
-
+  console.log(role);
     fetchData();
-  }, [cookies, dispatch]);
+  }, [cookies, dispatch, role]);
   return { role, userData, loading };
 };

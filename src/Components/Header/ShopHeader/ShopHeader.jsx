@@ -10,6 +10,7 @@ import { FaHeart } from "react-icons/fa";
 import DashBoardBtn from "../../Buttons/DashBoardBtn/DashBoardBtn";
 import LoginBtn from "../../Buttons/LoginBtn/LoginBtn";
 import UserBtn from "../../Buttons/UserBtn/UserBtn";
+import { Link } from "react-router-dom";
 
 export default function ShopHeader() {
   const formik = useFormik({
@@ -32,7 +33,9 @@ export default function ShopHeader() {
         <span>
           <FiShoppingBag />
         </span>
-        <span>My Shop</span>
+        <Link title="Home" to="/">
+          <span>My Shop</span>
+        </Link>
       </div>
       <div className={css.search}>
         <div className={css.inputContainer}>
@@ -51,8 +54,8 @@ export default function ShopHeader() {
       </div>
       <div className={css.icons}>
         <DashBoardBtn />
-        <UserBtn/>
-        <LoginBtn/>
+        <UserBtn />
+        <LoginBtn />
         <MainBtn btn={<FaHeart title="favorite" />} />
         <MainBtn btn={<HiShoppingCart title="car" />} />
       </div>

@@ -20,16 +20,15 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     if (completeLogin) {
       Cookies.set("access_token", `${records.token}`, { expires: 7 });
-        if (records?.data?.role === "admin" && Cookies.get("access_token")) {
-          navigate("/dashboard");
-        } else {
-          navigate("/");
-        }
+      if (records?.data?.role === "admin" && Cookies.get("access_token")) {
+        navigate("/dashboard");
+      } else {
+        navigate("/");
+      }
     }
-  } , [completeLogin, navigate, records, records.token])
+  }, [completeLogin, navigate, records, records.token]);
 
   const formik = useFormik({
     initialValues: {
@@ -90,7 +89,7 @@ export default function LoginForm() {
       </Link>
       {error ? (
         <ErrorModel
-          msg={error}
+          msg={"Error: InCorrect password Or Email"}
           loading={loading}
           error={error}
           complete={completeLogin}

@@ -17,7 +17,8 @@ import LoginForm from "./Auth/LoginForm/LoginForm.jsx";
 import SignupForm from "./Auth/SignupForm/SignupForm.jsx";
 import IsAuth from "./Auth/isAuth/IsAuth.jsx";
 import MyPage from "./Pages/myPage/MyPage.jsx";
-import NotFoundPage from "./Components/NotFoundPage/NotFoundPage.jsx";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage.jsx";
+import UserPage from "./Pages/userPage/UserPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: <MainAuth element={<SignupForm />} />,
+  },
+  {
+    path: "userPage",
+    element: <UserPage /> ,
   },
   {
     path: "dashboard",

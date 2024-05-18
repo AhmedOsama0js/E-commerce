@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const access_token = Cookies.get("access_token");
+const access_token = () => Cookies.get("access_token");
 
 const initState = {
   records: [],
@@ -18,7 +18,7 @@ export const getClients = createAsyncThunk(
     try {
       const response = await axios.get("http://localhost:8008/api/v1/users", {
         headers: {
-          Authorization: `Bearer ${access_token}`,
+          Authorization: `Bearer ${access_token()}`,
         },
       });
       return response.data;
@@ -34,7 +34,7 @@ export const deleteClients = createAsyncThunk(
     try {
       await axios.delete(`http://localhost:8008/api/v1/users/${id}`, {
         headers: {
-          Authorization: `Bearer ${access_token}`,
+          Authorization: `Bearer ${access_token()}`,
           "Content-Type": "application/json",
         },
       });

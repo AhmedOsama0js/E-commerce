@@ -2,14 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const access_token = Cookies.get("access_token");
+const access_token =()=> Cookies.get("access_token");
 
 const initState = { records: [], loading: false, error: null, complete: false };
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8008/api/v1",
   headers: {
-    Authorization: `Bearer ${access_token}`,
+    Authorization: `Bearer ${access_token()}`,
     "Content-Type": "multipart/form-data",
   },
 });

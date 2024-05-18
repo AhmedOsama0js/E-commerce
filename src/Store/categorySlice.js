@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const access_token = Cookies.get("access_token");
+const access_token = ()=>Cookies.get("access_token");
 
 const initState = {
   records: [],
@@ -13,7 +13,7 @@ const initState = {
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8008/api/v1",
-  headers: { Authorization: `Bearer ${access_token}` },
+  headers: { Authorization: `Bearer ${access_token()}` },
 });
 
 export const getCategory = createAsyncThunk(

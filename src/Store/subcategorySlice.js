@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const access_token = Cookies.get("access_token");
+const access_token = () => Cookies.get("access_token");
 const initState = {
   records: [],
   loading: false,
@@ -12,7 +12,7 @@ const initState = {
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8008/api/v1",
-  headers: { Authorization: `Bearer ${access_token}` },
+  headers: { Authorization: `Bearer ${access_token()}` },
 });
 
 export const getSubcategory = createAsyncThunk(
@@ -31,7 +31,7 @@ export const deleteSubcategory = createAsyncThunk(
   "subcategory/deleteSubcategory",
   async (id, thunkAPI) => {
     try {
-      const response = await axiosInstance.delete(`/Subcategories/${id}`);
+      await axiosInstance.delete(`/Subcategories/${id}`);
       return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

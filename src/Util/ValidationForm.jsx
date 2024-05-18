@@ -2,8 +2,7 @@ import * as Yup from "yup";
 
 export const categoryFormValid = Yup.object().shape({
   name: Yup.string().required(" is required").min(3, " must be at least 3"),
-  image: Yup.mixed().required(" is required")
-
+  image: Yup.mixed().required(" is required"),
 });
 
 export const subcategoryFormValid = Yup.object().shape({
@@ -12,11 +11,8 @@ export const subcategoryFormValid = Yup.object().shape({
   image: Yup.mixed().required(" is required"),
 });
 
-
 export const productFormValid = Yup.object().shape({
-  title: Yup.string()
-    .required(" is required")
-    .min(3, " must be at least 3 "),
+  title: Yup.string().required(" is required").min(3, " must be at least 3 "),
   colors: Yup.array().required("Color is required"),
   description: Yup.string()
     .required(" is required")
@@ -38,7 +34,6 @@ export const productFormValid = Yup.object().shape({
   brand: Yup.string().required(" is required"),
 });
 
-
 export const brandFormValid = Yup.object().shape({
   name: Yup.string().required(" is required").min(3, " must be at least 3"),
   image: Yup.mixed().required("Image is required"),
@@ -56,23 +51,22 @@ export const getMeFormValid = Yup.object().shape({
   phone: Yup.string().required(" is required").min(11, " must be at least 11"),
 });
 
-
-
 export const loginFormValid = Yup.object().shape({
   email: Yup.string()
     .required("Email is required")
     .email("Invalid email address"),
-  password: Yup.string()
-    .required("Password is required")
+  password: Yup.string().required("Password is required"),
 });
 
 export const signupFormValid = Yup.object().shape({
+  imageProfile: Yup.mixed().required(" is required"),
   name: Yup.string()
     .required("Name is required")
     .min(3, "Name must be at least 3 characters"),
   email: Yup.string()
     .required("Email is required")
     .email("Invalid email address"),
+  phone: Yup.string().required(" is required").min(11, " must be at least 11"),
   password: Yup.string()
     .required("Password is required")
     .min(6, "Password must be at least 6 characters")
