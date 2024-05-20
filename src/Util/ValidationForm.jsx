@@ -13,14 +13,13 @@ export const subcategoryFormValid = Yup.object().shape({
 
 export const productFormValid = Yup.object().shape({
   title: Yup.string().required(" is required").min(3, " must be at least 3 "),
-  colors: Yup.array().required("Color is required"),
   description: Yup.string()
     .required(" is required")
     .min(20, " must be at least 20 characters"),
-  coverImage: Yup.mixed().required("Cover Image is required"),
-  Images: Yup.mixed().required("Images are required"),
+  // coverImage: Yup.mixed().required("Cover Image is required"),
+  // Images: Yup.mixed().required("Images are required"),
   price: Yup.number().required("*"),
-  priceAfterDiscount: Yup.string().test(
+  priceAfterDiscount: Yup.string().required("*").test(
     "is-less-than-price",
     " must be less than Price",
     function (value) {
@@ -59,14 +58,12 @@ export const loginFormValid = Yup.object().shape({
 });
 
 export const signupFormValid = Yup.object().shape({
-  imageProfile: Yup.mixed().required(" is required"),
   name: Yup.string()
     .required("Name is required")
     .min(3, "Name must be at least 3 characters"),
   email: Yup.string()
     .required("Email is required")
     .email("Invalid email address"),
-  phone: Yup.string().required(" is required").min(11, " must be at least 11"),
   password: Yup.string()
     .required("Password is required")
     .min(6, "Password must be at least 6 characters")

@@ -98,7 +98,6 @@ export default function Brand() {
     ],
     [handleEditClick, handleDeleteClick]
   );
-
   return (
     <>
       <MainTable

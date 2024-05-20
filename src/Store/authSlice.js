@@ -1,9 +1,5 @@
-import { createAsyncThunk, createSlice, createAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
-// Actions to reset completeSignup and completeLogin
-const resetCompleteSignup = createAction("auth/resetCompleteSignup");
-const resetCompleteLogin = createAction("auth/resetCompleteLogin");
 
 const initState = {
   records: [],
@@ -14,71 +10,45 @@ const initState = {
 };
 
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
-  const { rejectWithValue, dispatch } = thunkAPI;
+  const { rejectWithValue } = thunkAPI;
+  setTimeout(() => {
+    thunkAPI.dispatch(authSlice.actions.resetCompleteLogin());
+  }, 5000);
   try {
     const response = await axios.post(
       "http://localhost:8008/api/v1/auth/login",
       user
     );
-    dispatch(scheduleResetCompleteLogin());
     return response.data;
   } catch (error) {
-    const errorMessage =
-      error.response?.data?.message ||
-      error.response?.data ||
-      error.message ||
-      "An error occurred";
-    return rejectWithValue(errorMessage);
+    return rejectWithValue(error);
   }
 });
 
 export const signup = createAsyncThunk(
   "auth/signup",
   async (user, thunkAPI) => {
-    const { rejectWithValue, dispatch } = thunkAPI;
+    const { rejectWithValue } = thunkAPI;
     try {
       const response = await axios.post(
         "http://localhost:8008/api/v1/auth/signup",
         user
       );
-      dispatch(scheduleResetCompleteSignup());
       return response.data;
     } catch (error) {
-      const errorMessage =
-        error.response?.data?.message ||
-        error.message ||
-        error.response.data ||
-        "An error occurred";
-      return rejectWithValue(errorMessage);
+      return rejectWithValue(error);
     }
-  }
-);
-
-// Thunks to schedule the reset of completeSignup and completeLogin
-export const scheduleResetCompleteSignup = createAsyncThunk(
-  "auth/scheduleResetCompleteSignup",
-  async (_, thunkAPI) => {
-    const { dispatch } = thunkAPI;
-    setTimeout(() => {
-      dispatch(resetCompleteSignup());
-    }, 7000);
-  }
-);
-
-export const scheduleResetCompleteLogin = createAsyncThunk(
-  "auth/scheduleResetCompleteLogin",
-  async (_, thunkAPI) => {
-    const { dispatch } = thunkAPI;
-    setTimeout(() => {
-      dispatch(resetCompleteLogin());
-    }, 7000);
   }
 );
 
 const authSlice = createSlice({
   name: "auth",
   initialState: initState,
-  reducers: {},
+  reducers: {
+    resetCompleteLogin(state) {
+      state.completeLogin = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       // login
@@ -91,13 +61,11 @@ const authSlice = createSlice({
         state.loading = false;
         state.records = action.payload;
         state.completeLogin = true;
+
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
-        state.error = `Error: ${action.payload}`;
-        state.completeLogin = false;
-      })
-      .addCase(resetCompleteLogin, (state) => {
+        state.error = `Error: ${action.payload.message || action.payload}`;
         state.completeLogin = false;
       })
 
@@ -115,13 +83,11 @@ const authSlice = createSlice({
       })
       .addCase(signup.rejected, (state, action) => {
         state.loading = false;
-        state.error = `Error: ${action.payload}`;
-        state.completeSignup = false;
-      })
-      .addCase(resetCompleteSignup, (state) => {
+        state.error = `Error: ${action.payload.message || action.payload}`;
         state.completeSignup = false;
       });
   },
 });
 
+export const { resetCompleteLogin } = authSlice.actions;
 export default authSlice.reducer;

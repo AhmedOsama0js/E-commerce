@@ -36,7 +36,6 @@ export default function ProductForm({ SendData, type,loading }) {
       price: SendData?.price || 0,
       priceAfterDiscount: SendData?.priceAfterDiscount || 0,
       quantity: SendData?.quantity || 0,
-      // ratingQuantity: SendData?.ratingQuantity || "",
       category: SendData?.category?._id || "",
       subCategory: SendData?.subCategory?.[0]?._id || "",
       brand: SendData?.brand?._id || "",
@@ -57,7 +56,7 @@ export default function ProductForm({ SendData, type,loading }) {
       formData.append("quantity", values.quantity);
       formData.append("subCategory", values.subCategory);
       formData.append("title", values.title);
-
+      console.log(values);
       try {
         if (type === "add") {
           await dispatch(addProducts(formData));

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const access_token =()=> Cookies.get("access_token");
+const access_token = ()=> Cookies.get("access_token");
 
 const initState = { records: [], loading: false, error: null, complete: false };
 
