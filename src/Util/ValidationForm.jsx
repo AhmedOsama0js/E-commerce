@@ -16,17 +16,16 @@ export const productFormValid = Yup.object().shape({
   description: Yup.string()
     .required(" is required")
     .min(20, " must be at least 20 characters"),
-  // coverImage: Yup.mixed().required("Cover Image is required"),
+  imageCover: Yup.mixed().required("Cover Image is required"),
   // Images: Yup.mixed().required("Images are required"),
   price: Yup.number().required("*"),
-  priceAfterDiscount: Yup.string().required("*").test(
-    "is-less-than-price",
-    " must be less than Price",
-    function (value) {
+  priceAfterDiscount: Yup.string()
+    .required("*")
+    .test("is-less-than-price", ">Price", function (value) {
       const price = this.parent.price;
       return parseFloat(value) < parseFloat(price);
-    }
-  ),
+    }),
+
   quantity: Yup.number().required("*"),
   category: Yup.string().required(" is required"),
   subCategory: Yup.string().required(" is required"),

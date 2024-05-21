@@ -6,10 +6,10 @@ import { getCategory } from "../../../Store/categorySlice";
 import { getSubcategory } from "../../../Store/subcategorySlice";
 import { getBrand } from "../../../Store/brandSlice";
 import { IoIosClose } from "react-icons/io";
-import { addProducts } from "../../../Store/productSlice";
+import { addProducts, editProducts } from "../../../Store/productSlice";
 import { productFormValid } from "../../../Util/ValidationForm";
 
-export default function ProductForm({ SendData, type,loading }) {
+export default function ProductForm({ SendData, type, loading }) {
   const [coverImage, setCoverImage] = useState(SendData?.imageCover || null);
   const [Images, setImages] = useState(SendData?.images || []);
   const [valueImages, setValueImages] = useState(SendData?.images || []);
@@ -50,16 +50,27 @@ export default function ProductForm({ SendData, type,loading }) {
       values.colors.forEach((color) => formData.append("colors", color));
       formData.append("description", values.description);
       formData.append("imageCover", values.imageCover);
-      values.images.forEach((image) => formData.append("images", image));
+      values.images.forEach((image) => {
+        if (typeof image === "object") {
+          formData.append("images", image);
+        }
+      });
       formData.append("price", values.price);
       formData.append("priceAfterDiscount", values.priceAfterDiscount);
       formData.append("quantity", values.quantity);
       formData.append("subCategory", values.subCategory);
       formData.append("title", values.title);
-      console.log(values);
+
       try {
-        if (type === "add") {
-          await dispatch(addProducts(formData));
+        if (type === "edit") {
+          if (typeof values.imageCover === "object") {
+            dispatch(editProducts([SendData._id, formData]));
+          } else if (typeof values.imageCover === "string") {
+            formData.delete("imageCover");
+            dispatch(editProducts([SendData._id, formData]));
+          }
+        } else if (type === "add") {
+          dispatch(addProducts(formData));
         }
       } catch (error) {
         console.error("Error submitting form:", error);
@@ -99,10 +110,13 @@ export default function ProductForm({ SendData, type,loading }) {
   };
 
   const deleteImage = (index) => {
-    const updatedImages = Images.filter((_, i) => i !== index);
-    setImages(updatedImages);
-    setValueImages(updatedImages);
-    formik.setFieldValue("images", updatedImages);
+    const updatedImagesUrl = Images.filter((e) => e !== Images[index]);
+    const updatedImagesFile = valueImages.filter(
+      (e) => e !== valueImages[index]
+    );
+    setImages(updatedImagesUrl);
+    setValueImages(updatedImagesFile);
+    // formik.setFieldValue("images", updatedImagesFile);
   };
 
   const addImage = (e) => {
@@ -128,7 +142,7 @@ export default function ProductForm({ SendData, type,loading }) {
         quantity: 0,
         // ratingQuantity: 0,
         category: SendData?.category[0] || "",
-        subCategory: SendData?.subCategory?.[0] || "",
+        subCategory: SendData?.subCategory[0] || "",
         brand: SendData?.brand[0] || "",
       },
     });
@@ -143,6 +157,7 @@ export default function ProductForm({ SendData, type,loading }) {
       prevColors.filter((color) => color !== colorToRemove)
     );
   };
+
   return (
     <div className={css.container}>
       <h3>Product</h3>
@@ -160,8 +175,8 @@ export default function ProductForm({ SendData, type,loading }) {
               accept=".png, .jpg, .jpeg"
               onChange={imageCoverChange}
             />
-            {formik.touched.coverImage && formik.errors.coverImage && (
-              <div className={css.error}>{formik.errors.coverImage}</div>
+            {formik.touched.imageCover && formik.errors.imageCover && (
+              <h1 className={css.error}>{formik.errors.imageCover}</h1>
             )}
           </div>
           <div className={css.imageBox}>

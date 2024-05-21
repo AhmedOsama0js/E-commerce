@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const access_token = ()=> Cookies.get("access_token");
+const access_token = () => Cookies.get("access_token");
 
 const initState = { records: [], loading: false, error: null, complete: false };
 
@@ -53,6 +53,19 @@ export const addProducts = createAsyncThunk(
     }
   }
 );
+
+export const editProducts = createAsyncThunk(
+  "products/editProducts",
+  async ([id, formData], thunkAPI) => {
+    try {
+      const response = await axiosInstance.put(`/products/${id}`, formData);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 
 const productSlice = createSlice({
   name: "products",
@@ -105,6 +118,24 @@ const productSlice = createSlice({
       .addCase(deleteProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = `Error: ${action.payload.message}`;
+        state.complete = false;
+      })
+      // edit
+      .addCase(editProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.complete = false;
+      })
+      .addCase(editProducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.records.data = state.records.data.map((item) =>
+          item._id === action.payload.data._id ? action.payload : item
+        );
+        state.complete = true;
+      })
+      .addCase(editProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = `${action.payload}`;
         state.complete = false;
       });
   },
