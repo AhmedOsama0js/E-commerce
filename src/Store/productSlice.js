@@ -8,12 +8,22 @@ const initState = { records: [], loading: false, error: null, complete: false };
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8008/api/v1",
-  headers: {
-    Authorization: `Bearer ${access_token()}`,
-    "Content-Type": "multipart/form-data",
-  },
+  // headers: {
+  //   Authorization: `Bearer ${access_token()}`,
+  //   "Content-Type": "multipart/form-data",
+  // },
 });
 
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = access_token();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 export const getProducts = createAsyncThunk(
   "products/getProducts",
   async (_, thunkAPI) => {

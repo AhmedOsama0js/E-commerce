@@ -3,6 +3,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const access_token = () => Cookies.get("access_token");
+
+
 const initState = {
   records: [],
   loading: false,
@@ -12,8 +14,19 @@ const initState = {
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8008/api/v1",
-  headers: { Authorization: `Bearer ${access_token()}` },
+  // headers: { Authorization: `Bearer ${access_token()}` },
 });
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = access_token();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 export const getSubcategory = createAsyncThunk(
   "subcategory/getSubcategory",

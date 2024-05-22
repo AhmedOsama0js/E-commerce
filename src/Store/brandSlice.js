@@ -13,8 +13,19 @@ const initialState = {
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8008/api/v1",
-  headers: { Authorization: `Bearer ${access_token()}` },
+  // headers: { Authorization: `Bearer ${access_token()}` },
 });
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = access_token();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 export const getBrand = createAsyncThunk(
   "brands/getBrand",
